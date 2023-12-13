@@ -24,7 +24,7 @@ function TodoList({ todo, setTodo }) {
           <div>{item.title}</div>
           <button onClick={() => deletTodo(item.id)}>Удалить</button>
 
-          <button onClick={() => statusTodo(item.id)}>закрыть / открыть</button>
+          <button onClick={() => statusTodo(item.id)}>Закрыть / открыть</button>
         </div>
       ))}
     </div>
