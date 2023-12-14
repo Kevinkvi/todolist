@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Row, Col, Button, FormControl } from "react-bootstrap";
+import s from "./TodoList.module.css";
 
 function TodoList({ todo, setTodo }) {
   const [edit, setEdit] = useState(false);
@@ -20,11 +22,26 @@ function TodoList({ todo, setTodo }) {
   return (
     <div>
       {todo.map((item) => (
-        <div key={item.id}>
-          <div>{item.title}</div>
-          <button onClick={() => deletTodo(item.id)}>Удалить</button>
+        <div
+          key={item.id}
+          className={s.listItems}
+        >
+          <div className={!item.status ? s.close : ""}>{item.title}</div>
+          <div>
+            <Button
+              onClick={() => deletTodo(item.id)}
+              className={s.btn}
+            >
+              удалить
+            </Button>
 
-          <button onClick={() => statusTodo(item.id)}>Закрыть / открыть</button>
+            <Button
+              onClick={() => statusTodo(item.id)}
+              className={s.btn}
+            >
+              {item.status ? "открыто" : "закрыто"}
+            </Button>
+          </div>
         </div>
       ))}
     </div>
